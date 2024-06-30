@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Una página web universal e inclusiva para todos.">
+    <meta name="author" content="icaito-ricode">
+    <meta name="keywords" content="Mi pagina, mi sitio, mi web">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>Página Universal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url(img/universal.jpg);
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: .1em 0;
+        }
+
+        header.dark-mode {
+            background-color: #444;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 1em;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        main {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+            background: lightyellow;
+        }
+
+        footer {
+            background-color: blue;
+            color: #fff;
+            text-align: center;
+            padding: .1em 0;
+            position: relative;
+            bottom: 0%;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        footer:hover {
+            background-color: red;
+            color: green;
+        }
+
+        footer.dark-mode {
+            background-color: #444;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+
+        .theme-toggle {
+            margin-top: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Bienvenidos a la Página Universal</h1>
+        <p>Un lugar para todos, sin importar quién seas.</p>
+    </header>
+    <nav>
+        <a href="pagina1.html">Niño</a>
+        <a href="pagina2.html">Joven</a>
+        <a href="pagina3.html">Adulto</a>
+    </nav>
+    <main>
+        <section>
+            <h2>Inicio</h2>
+            <p>Esta página está diseñada para ser accesible y útil para cualquier persona, sin importar su edad, género,
+                religión o estatus social. Queremos que todos se sientan bienvenidos aquí.</p>
+        </section>
+        <section>
+            <h2>Acerca de</h2>
+            <p>Nuestra misión es crear un espacio inclusivo y seguro para todos. Trabajamos constantemente para mejorar
+                la accesibilidad y la usabilidad de nuestra página.</p>
+        </section>
+        <section>
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta o sugerencia, por favor contáctanos a través del siguiente formulario:</p>
+            <form id="contactForm" action="procesar.php" method="post">
+                <label for="name">Nombre:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Correo electrónico:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Mensaje:</label><br>
+                <textarea id="message" name="message" required></textarea><br>
+                <button type="submit">Enviar</button>
+            </form>
+            <button class="theme-toggle" onclick="toggleTheme()">Cambiar Tema</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Página Universal. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para mostrar un mensaje de confirmación al enviar el formulario
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita el envío del formulario
+            alert('Gracias por contactarnos. Te responderemos pronto.');
+            this.reset(); // Resetea el formulario
+        });
+
+        // Función para cambiar el tema de la página
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('header').classList.toggle('dark-mode');
+            document.querySelector('footer').classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+
+</html>
